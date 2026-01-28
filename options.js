@@ -27,20 +27,8 @@ async function saveImageOptions() {
 
     // if you're adding a new image library, make sure to add it to options.html as well so options.js can see it
     switch (settingsToSave.imgLibraryName) {
-        case "nCage":
-            settingsToSave.imgLibrary = ncageImages;
-            break;
-        case "rubberDucks":
-            settingsToSave.imgLibrary = rubberDuckImages;
-            break;
-        case "animeGirls":
-            settingsToSave.imgLibrary = animeGirlImages;
-            break;
-        case "censored":
-            settingsToSave.imgLibrary = "censored";
-            break;
-        case "spinInPlace":
-            settingsToSave.imgLibrary = "spinInPlace";
+        case "loris":
+            settingsToSave.imgLibrary = lorisImages;
             break;
         case "custom":
             settingsToSave.imgLibrary = curSessionCustomImages;
@@ -48,7 +36,7 @@ async function saveImageOptions() {
             settingsToSave.customImageLibrary = curSessionCustomImages;
             break;
         default:
-            settingsToSave.imgLibrary = ncageImages;
+            settingsToSave.imgLibrary = lorisImages;
             break;
     }
 
@@ -72,24 +60,13 @@ function updateSelectionNotice() {
     let imgLibOption = document.getElementById('imageLibrarySelection').value;
     let noticeText = "";
     switch (imgLibOption) {
-        case "nCage":
-            noticeText = "The finest selection of Nicolas Cage compositions on the interwebs!";
-            break;
-        case "rubberDucks":
-            noticeText = "Replace native images with (mostly) friendly rubber ducks!";
-            break;
-        case "animeGirls":
-            noticeText = "Cutesy-wootsy non-lewd waifus (✿^‿^)";
-            break;
-        case "censored":
-            noticeText = "Blurs webpage images and overlays a foreboding notice (this one's a little hit-and-miss :P ).";
-            break;
-        case "spinInPlace":
-            noticeText = "Retains native images but adds a spin animation with a randomized speed and direction.";
+        case "loris":
+            noticeText = "Adorable slow loris images!";
             break;
         case "custom":
             noticeText = "Create your own library using any images you like!";
             populateTextArea(curSessionCustomImages);
+            break;
     }
     document.getElementById("ncLibNotice").textContent = noticeText;
     // hide the textarea unless the "custom" option is selected

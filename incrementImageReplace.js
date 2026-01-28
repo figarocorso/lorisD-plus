@@ -14,9 +14,6 @@ chrome.runtime.onInstalled.addListener((object) => {
     // could maybe prevent by checking if there are existing settings...
     if (object.reason === 'install') {
         loadDefaultOptions();
-
-        // also open the options page for them on installation:
-        chrome.tabs.create({ url: "chrome-extension://blenoallcdijagcfhdbidjiimoandabh/options.html" }, function (tab) { });
     }
 
     // create alarm after extension is installed/upgraded

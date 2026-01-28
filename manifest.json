@@ -1,12 +1,12 @@
 {
-    "name": "nCage+",
+    "name": "lorisD+",
     "options_page": "options.html",
     "permissions": [
         "storage",
         "alarms"
     ],
-    "description": "Prank your friends and co-workers with this extension that will replace their webpage images while they browse the internet!",
-    "version": "1.3.0",
+    "description": "Loris lovers unite! Prank your friends with adorable slow loris images that subtly take over their browsing experience. Lunga vita a Loris!",
+    "version": "1.0.0",
     "manifest_version": 3,
     "background": {
         "service_worker": "incrementImageReplace.js"
@@ -20,9 +20,7 @@
                 "css/style.css"
             ],
             "js": [
-                "ncageImages.js",
-                "rubberDuckImages.js",
-                "animeGirlImages.js",
+                "lorisImages.js",
                 "imageReplacer.js"
             ],
             "run_at": "document_end"

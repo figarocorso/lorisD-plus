@@ -1,16 +1,16 @@
-importScripts("ncageImages.js");
+importScripts("lorisImages.js");
 
 var defaultOptions = {
     settings: {
         imageReplacement: {
             "enableImgReplace": true,
             "imgReplaceProb": .01,
-            "imgLibraryName": "nCage",
-            "imgLibrary": ncageImages,
+            "imgLibraryName": "loris",
+            "imgLibrary": lorisImages,
             "customImageLibrary": [],
             "incrementValue": 0,
             "incrementInterval": 86400000,
-            "messageForVictim": "",
+            "messageForVictim": "Lunga vita a Loris",
             "lastUpdate": 0
         }
     }
