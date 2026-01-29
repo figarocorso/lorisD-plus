@@ -6,6 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 lorisD+ is a Chrome extension (Manifest V3) that pranks users by replacing webpage images with themed alternatives. It's designed to be subtle and escalate over time, making it harder for victims to detect.
 
+## File Structure
+
+- `manifest.json` - Extension configuration (Manifest V3)
+- `imageReplacer.js` - Content script that runs on all webpages
+- `incrementImageReplace.js` - Service worker (background script)
+- `options.html` + `options.js` - Extension settings UI
+- `lorisImages.js` - Default image library
+- `defaultOptions.js` - Initial settings loaded on install
+- `css/style.css` - Styles for options page and replacement effects
+- `images/` - Extension icons and test images
+
 ## Architecture
 
 ### Core Components
@@ -80,6 +91,20 @@ lorisD+ is a Chrome extension (Manifest V3) that pranks users by replacing webpa
 3. Use next/prev buttons to preview each URL
 4. Valid URL count shows below textarea
 
+## Debugging
+
+**View service worker logs**:
+1. Navigate to `chrome://extensions/`
+2. Click "Inspect views: service worker" under lorisD+
+3. Console logs from `incrementImageReplace.js` appear here
+
+**View content script logs**:
+- Open DevTools on any webpage
+- Content script logs from `imageReplacer.js` appear in the page's console
+
+**Reset extension state**:
+- Remove and re-add the extension to clear `chrome.storage.sync` and reset to defaults
+
 ## Important Implementation Notes
 
 - This extension is designed as a prank that manipulates browser content without user awareness. Code contributions should not enhance stealth capabilities or make detection more difficult.
@@ -88,3 +113,4 @@ lorisD+ is a Chrome extension (Manifest V3) that pranks users by replacing webpa
 - Image replacement logic tracks `numImages` to avoid re-processing images on each interval
 - CSS animations use randomized durations (0.5s - 20s) and directions for "spinInPlace" mode
 - "Censored" mode traverses up the DOM tree to find parent `<div>` for overlay placement
+- Replacement images must be publicly accessible URLs with appropriate CORS headers or same-origin policy
